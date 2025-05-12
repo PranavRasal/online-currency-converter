@@ -8,8 +8,7 @@ let img1 = document.querySelector(".from img");
 let img2 = document.querySelector(".to img");
 
 
-
-  for(let select of selectors ){
+for(let select of selectors ){
   for(counrtyCode in countryList){
      let newOption = document.createElement("option");
      newOption.innerText = counrtyCode;
@@ -36,8 +35,7 @@ let img2 = document.querySelector(".to img");
  }
 
  
-
- bnt.addEventListener("click", async (evt)=>{
+bnt.addEventListener("click", async (evt)=>{
   evt.preventDefault();
   let amount =document.querySelector(".enterAmount input");
   let amtval =amount.value;
@@ -48,7 +46,9 @@ let img2 = document.querySelector(".to img");
 let b = currencyTo.value;
   let convert = await fetch(URL);
   let data = await convert.json();
-  let rate = data.rates[b];
+      
+
+let rate = data.rates[b];
 change.innerText = `${amtval} ${currencyFrom.value} = ${rate} ${currencyTo.value}`;
 });
 
@@ -70,7 +70,7 @@ for(let select of selectors ){
      select.append(newOption);
     }};
   let c = countryList[a];
-   let d =countryList[b];
+   let d =countryList[b]; 
     img1.src = `https://flagsapi.com/${d}/flat/64.png`;
     img2.src =`https://flagsapi.com/${c}/flat/64.png`;
  });
